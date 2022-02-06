@@ -1,0 +1,100 @@
+// creacion item menu click
+nav {
+	width: 100%;
+}
+.menu-click {
+	position: relative;
+	pointer-events: none;
+	// display: block;
+	// width: 100%;
+	// height: 100%;
+}
+
+.menu-click input {
+	opacity: 1;
+	position: absolute;
+	width: 0%;
+	height: 0%;
+}
+
+.checked-menu {
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 4px;
+	background-color: transparent;
+	margin: auto;
+
+	transition: background-color 0.4s ease;
+}
+
+.menu-click input:hover ~ .checked-menu {
+	background-color: var(--white-color);
+}
+.menu-click input:checked ~ .checked-menu {
+	background-color: var(--white-color);
+}
+
+// ubicacion
+nav {
+	width: 100vw;
+	height: calc(100vh - 4rem);
+	background-color: var(--second-color);
+	background-color: #06210afa;
+	position: fixed;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	flex-grow: 1;
+	align-items: stretch;
+
+	z-index: 997;
+	transform: translate(-100%, 0);
+	transition: transform 0.3s ease;
+	@include desktop() {
+		transform: translate(0, 0);
+		position: static;
+		height: 4rem;
+		flex-direction: row;
+	}
+}
+
+// funcionamiento de click
+.off-canva-burguer,
+.off-canva-btn {
+	position: fixed;
+	width: 3rem;
+	height: 3rem;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	@include desktop() {
+		display: none;
+	}
+}
+.off-canva-btn {
+	cursor: pointer;
+	transition: transform 0.3s ease;
+	z-index: 999;
+	opacity: 0;
+}
+.off-canva-burguer {
+	z-index: 998;
+	background-image: url('../image/icon/menu.svg');
+	background-position: center;
+	background-size: contain;
+	transition: background-image 0.5s linear;
+}
+
+/* funcionamiento */
+/* esto simula el boton */
+.off-canva-btn:checked ~ nav {
+	transform: translate(0, 0);
+}
+/* formando la x */
+.off-canva-btn:checked + .off-canva-burguer {
+	background-image: url('../image/icon/close.svg');
+}

@@ -1,0 +1,59 @@
+.modal-preview {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #0008;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 0;
+	z-index: 997;
+	pointer-events: none;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+.modal-preview-container {
+	position: relative;
+	width: 70%;
+	height: 70vh;
+	display: grid;
+	padding: 0.5rem;
+	grid-template-rows: 0.5fr 0.5fr 1fr 1fr;
+	background-color: white;
+	border: thick double var(--second-alpha-color);
+	border-radius: 0.5rem;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.modal-preview-close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: thick double var(--second-alpha-color);
+	border-radius: 50%;
+	color: var(--second-alpha-color);
+	font-size: 2rem;
+	text-align: center;
+	transition: transform 0.3s linear;
+}
+.modal-preview-close:hover {
+	transform: scale(1.1, 1.1);
+	background-color: rgb(3, 73, 3);
+	border: thick double white;
+	color: white;
+}
+
+/* FUNCIONAMIENTO */
+.modal-preview:target {
+	opacity: 1;
+	pointer-events: auto;
+}

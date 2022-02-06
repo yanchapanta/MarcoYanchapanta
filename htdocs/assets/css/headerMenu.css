@@ -1,0 +1,21 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 58 | /     @include desktop() {
+ * 59 | |         transform: translate(0, 0);
+ * 60 | |         position: static;
+ * 61 | |         height: 4rem;
+ * 62 | |         flex-direction: row;
+ * 63 | \     }
+ *    '
+ *   sass\headerMenu.scss 58:2  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 58 \2502  \250c      @include desktop() {\a 59 \2502  \2502          transform: translate(0, 0);\a 60 \2502  \2502          position: static;\a 61 \2502  \2502          height: 4rem;\a 62 \2502  \2502          flex-direction: row;\a 63 \2502  \2514      }\a    \2575 \a   sass\\headerMenu.scss 58:2  root stylesheet";
+}
