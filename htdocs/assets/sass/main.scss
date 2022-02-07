@@ -1,9 +1,9 @@
-
-@include tablet(){
+@import 'values';
+@import 'mixins';
+@include tablet() {
 	.merryBody2-xxl {
 		font-size: 18px;
 	}
-
 }
 @include desktop() {
 	.firaH3-xxl {
@@ -19,16 +19,23 @@
 
 main {
 	min-height: 24.5rem;
-	
 	background-image: url('../image/hi/forma7.svg'), url('../image/hi/home.svg');
 	background-size: 100%, 100%;
 	background-position: center 40%, center;
-	
+
 	background-repeat: no-repeat;
-	
+
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	@include phone() {
 		background-position: center 94%, center;
 	}
@@ -45,10 +52,21 @@ main {
 main > div {
 	max-width: 44rem;
 
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: stretch;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
 	gap: 2rem;
 	padding: 2rem;
 
@@ -58,14 +76,22 @@ main > div {
 }
 
 .hi {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	gap: 1rem;
 	hgroup {
 		text-align: center;
 		color: var(--white);
-		h1,h2 {
+		h1,
+		h2 {
 			color: var(--white-color);
 		}
 	}

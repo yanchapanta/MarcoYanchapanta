@@ -5,14 +5,20 @@
 	text-align: center;
 	border-radius: 5px;
 	padding: 0.5rem 1rem;
+	-webkit-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	-o-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 	outline: none;
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
-
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 	display: inline-flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	
 }
 .link {
 	background-color: transparent;
@@ -21,9 +27,17 @@
 	padding: 1rem;
 	height: 100%;
 
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .btn-call {
 	background-color: transparent;
@@ -48,7 +62,8 @@
 	color: var(--gray-light-color);
 }
 .btn:active {
-	box-shadow: 0px 0px 8px 2px var(--first-alpha-color) inset;
+	-webkit-box-shadow: 0px 0px 8px 2px var(--first-alpha-color) inset;
+	        box-shadow: 0px 0px 8px 2px var(--first-alpha-color) inset;
 }
 
 header {
@@ -56,7 +71,15 @@ header {
 	height: 4rem;
 	background-color: var(--second-alpha-color);
 
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }

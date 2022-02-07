@@ -1,3 +1,5 @@
+@import 'values';
+@import 'mixins';
 // creacion item menu click
 nav {
 	width: 100%;
@@ -27,6 +29,10 @@ nav {
 	background-color: transparent;
 	margin: auto;
 
+	-webkit-transition: background-color 0.4s ease;
+
+	-o-transition: background-color 0.4s ease;
+
 	transition: background-color 0.4s ease;
 }
 
@@ -46,20 +52,43 @@ nav {
 	position: fixed;
 	bottom: 0;
 
+	display: -webkit-box;
+
+	display: -ms-flexbox;
+
 	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	flex-grow: 1;
-	align-items: stretch;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
 
 	z-index: 997;
-	transform: translate(-100%, 0);
+	-webkit-transform: translate(-100%, 0);
+	    -ms-transform: translate(-100%, 0);
+	        transform: translate(-100%, 0);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	-o-transition: transform 0.3s ease;
 	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 	@include desktop() {
-		transform: translate(0, 0);
+		-webkit-transform: translate(0, 0);
+		    -ms-transform: translate(0, 0);
+		        transform: translate(0, 0);
 		position: static;
 		height: 4rem;
-		flex-direction: row;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
 	}
 }
 
@@ -77,7 +106,11 @@ nav {
 }
 .off-canva-btn {
 	cursor: pointer;
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	-o-transition: transform 0.3s ease;
 	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 	z-index: 999;
 	opacity: 0;
 }
@@ -86,15 +119,67 @@ nav {
 	background-image: url('../image/icon/menu.svg');
 	background-position: center;
 	background-size: contain;
+	-webkit-transition: background-image 0.5s linear;
+	-o-transition: background-image 0.5s linear;
 	transition: background-image 0.5s linear;
 }
 
 /* funcionamiento */
 /* esto simula el boton */
 .off-canva-btn:checked ~ nav {
-	transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	    -ms-transform: translate(0, 0);
+	        transform: translate(0, 0);
 }
 /* formando la x */
 .off-canva-btn:checked + .off-canva-burguer {
 	background-image: url('../image/icon/close.svg');
 }
+
+// funcionamiento btn fixed
+.link-fixed,
+.link-fixed-label,
+.link-fixed-input {
+	position: fixed;
+	width: 3rem;
+	height: 3rem;
+	bottom: calc(var(--link-fixed-b) + 3rem);
+	right: calc(var(--link-fixed-r) + 0rem);
+
+	@include desktop() {
+		bottom: var(--link-fixed-r);
+		right: var(--link-fixed-b);
+	}
+}
+.link-fixed-input {
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	-o-transition: transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+	z-index: 999;
+	opacity: 0;
+	cursor: pointer;
+	pointer-events: none;
+}
+.link-fixed:hover,
+.link-fixed-label {
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	-webkit-transition: background-image 0.5s linear;
+	-o-transition: background-image 0.5s linear;
+	transition: background-image 0.5s linear;
+}
+.link-fixed-label {
+	z-index: 998;
+	background-image: var(--link-fixed-icon);
+}
+
+.link-fixed:hover {
+	z-index: 998;
+	background-image: var(--link-fixed-icon-active);
+}
+// .link-fixed-input:checked + .link-fixed-label {
+// 	background-image: url('../image/icon/btn-up-active.svg');
+// }

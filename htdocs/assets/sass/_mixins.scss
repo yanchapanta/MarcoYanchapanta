@@ -9,14 +9,28 @@
 		@content;
 	}
 }
-@mixin desktop {
-    
+@mixin desktop {    
 	@media only screen and (min-width: #{$desktop}) {
 		@content;
 
 	}
 }
 @mixin boton-color($grd1, $grd2, $grd3, $grd4) {
+	background: -webkit-gradient(
+		linear,
+		right top, left top,
+		color-stop(-0.05%, $grd1),
+		color-stop(37.47%, $grd2),
+		color-stop(57.27%, $grd3),
+		to($grd4)
+	);
+	background: -o-linear-gradient(
+		right,
+		$grd1 -0.05%,
+		$grd2 37.47%,
+		$grd3 57.27%,
+		$grd4 100%
+	);
 	background: linear-gradient(
 		270deg,
 		$grd1 -0.05%,
@@ -36,6 +50,12 @@
 	background-image: url($image);
 	background-repeat: no-repeat;
 
-	transform-origin: center center;
+	-webkit-transform-origin: center center;
+
+	    -ms-transform-origin: center center;
+
+	        transform-origin: center center;
+	-webkit-transition: background-image 0.3s ease;
+	-o-transition: background-image 0.3s ease;
 	transition: background-image 0.3s ease;
 }

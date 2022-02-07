@@ -1,21 +1,184 @@
-/* Error: Undefined mixin.
- *    ,
- * 58 | /     @include desktop() {
- * 59 | |         transform: translate(0, 0);
- * 60 | |         position: static;
- * 61 | |         height: 4rem;
- * 62 | |         flex-direction: row;
- * 63 | \     }
- *    '
- *   sass\headerMenu.scss 58:2  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 58 \2502  \250c      @include desktop() {\a 59 \2502  \2502          transform: translate(0, 0);\a 60 \2502  \2502          position: static;\a 61 \2502  \2502          height: 4rem;\a 62 \2502  \2502          flex-direction: row;\a 63 \2502  \2514      }\a    \2575 \a   sass\\headerMenu.scss 58:2  root stylesheet";
+nav {
+  width: 100%;
 }
+
+.menu-click {
+  position: relative;
+  pointer-events: none;
+}
+
+.menu-click input {
+  opacity: 1;
+  position: absolute;
+  width: 0%;
+  height: 0%;
+}
+
+.checked-menu {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  margin: auto;
+  -webkit-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+
+.menu-click input:hover ~ .checked-menu {
+  background-color: var(--white-color);
+}
+
+.menu-click input:checked ~ .checked-menu {
+  background-color: var(--white-color);
+}
+
+nav {
+  width: 100vw;
+  height: calc(100vh - 4rem);
+  background-color: var(--second-color);
+  background-color: #06210afa;
+  position: fixed;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  z-index: 997;
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+@media only screen and (min-width: 64em) {
+  nav {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    position: static;
+    height: 4rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.off-canva-burguer,
+.off-canva-btn {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+@media only screen and (min-width: 64em) {
+  .off-canva-burguer,
+.off-canva-btn {
+    display: none;
+  }
+}
+
+.off-canva-btn {
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  z-index: 999;
+  opacity: 0;
+}
+
+.off-canva-burguer {
+  z-index: 998;
+  background-image: url("../image/icon/menu.svg");
+  background-position: center;
+  background-size: contain;
+  -webkit-transition: background-image 0.5s linear;
+  -o-transition: background-image 0.5s linear;
+  transition: background-image 0.5s linear;
+}
+
+/* funcionamiento */
+/* esto simula el boton */
+.off-canva-btn:checked ~ nav {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* formando la x */
+.off-canva-btn:checked + .off-canva-burguer {
+  background-image: url("../image/icon/close.svg");
+}
+
+.link-fixed,
+.link-fixed-label,
+.link-fixed-input {
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: calc(var(--link-fixed-b) + 3rem);
+  right: calc(var(--link-fixed-r) + 0rem);
+}
+@media only screen and (min-width: 64em) {
+  .link-fixed,
+.link-fixed-label,
+.link-fixed-input {
+    bottom: var(--link-fixed-r);
+    right: var(--link-fixed-b);
+  }
+}
+
+.link-fixed-input {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  z-index: 999;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.link-fixed:hover,
+.link-fixed-label {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transition: background-image 0.5s linear;
+  -o-transition: background-image 0.5s linear;
+  transition: background-image 0.5s linear;
+}
+
+.link-fixed-label {
+  z-index: 998;
+  background-image: var(--link-fixed-icon);
+}
+
+.link-fixed:hover {
+  z-index: 998;
+  background-image: var(--link-fixed-icon-active);
+}
+
+/*# sourceMappingURL=headerMenu.css.map */

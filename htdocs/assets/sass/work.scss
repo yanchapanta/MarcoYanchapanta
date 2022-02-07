@@ -1,9 +1,15 @@
+@import 'values';
+@import 'mixins';
 @include desktop() {
 	.order-1 {
-		order: 1;
+		-webkit-box-ordinal-group: 2;
+		    -ms-flex-order: 1;
+		        order: 1;
 	}
 	.order-2 {
-		order: 2;
+		-webkit-box-ordinal-group: 3;
+		    -ms-flex-order: 2;
+		        order: 2;
 	}
 }
 .container-v1 {
@@ -11,11 +17,18 @@
 	@include desktop() {
 		padding: 0 5rem;
 	}
+	
 }
 .title {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	color: var(--second-alpha-color);
 	height: 3rem;
 	position: relative;
@@ -36,6 +49,12 @@
 	width: 15px;
 	height: 15px;
 	// background-color: var(--second-alpha-color);
+	background-image: -o-radial-gradient(
+		center,
+		circle,
+		var(--second-alpha-color) 30%,
+		white 30%
+	);
 	background-image: radial-gradient(
 		circle at center,
 		var(--second-alpha-color) 30%,
@@ -50,18 +69,33 @@
 	color: var(--first-color);
 }
 .cards-work {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	gap: 2rem;
 }
 
 .card-work {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	gap: 0.5rem;
 	div {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 		gap: 0.5rem;
 		@include desktop() {
 			gap: 2.5rem;
@@ -73,8 +107,13 @@
 		}
 	}
 	@include desktop() {
-		flex-direction: row;
-		align-items: center;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		gap: 2rem;
 		border-top: thin solid var(--first-color);
 

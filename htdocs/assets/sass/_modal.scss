@@ -5,15 +5,22 @@
 	left: 0;
 	right: 0;
 	background-color: #0008;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 
 	opacity: 0;
 	z-index: 997;
 	pointer-events: none;
 	overflow-y: hidden;
 	overflow-x: hidden;
+	
 }
 .modal-preview-container {
 	position: relative;
@@ -35,18 +42,30 @@
 	right: 0.5rem;
 	width: 2.5rem;
 	height: 2.5rem;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	border: thick double var(--second-alpha-color);
 	border-radius: 50%;
 	color: var(--second-alpha-color);
 	font-size: 2rem;
 	text-align: center;
+	-webkit-transition: -webkit-transform 0.3s linear;
+	transition: -webkit-transform 0.3s linear;
+	-o-transition: transform 0.3s linear;
 	transition: transform 0.3s linear;
+	transition: transform 0.3s linear, -webkit-transform 0.3s linear;
 }
 .modal-preview-close:hover {
-	transform: scale(1.1, 1.1);
+	-webkit-transform: scale(1.1, 1.1);
+	    -ms-transform: scale(1.1, 1.1);
+	        transform: scale(1.1, 1.1);
 	background-color: rgb(3, 73, 3);
 	border: thick double white;
 	color: white;
